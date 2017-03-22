@@ -1,0 +1,20 @@
+//output
+RPC_server
+root@sdl18:/home/administrator/be27# make -f Makefile.fact
+cc -g -DRPC_SVC_FG   -c -o fact_clnt.o fact_clnt.c
+cc -g -DRPC_SVC_FG   -c -o fact_client.o fact_client.c
+cc -g -DRPC_SVC_FG   -c -o fact_xdr.o fact_xdr.c
+cc -g -DRPC_SVC_FG    -o fact_client  fact_clnt.o fact_client.o fact_xdr.o -lnsl 
+cc -g -DRPC_SVC_FG    -o fact_server  fact_svc.o fact_server.o fact_xdr.o -lnsl
+root@sdl18:/home/administrator/be27# sudo ./fact_server
+sudo: unable to resolve host sdl18
+
+
+
+administrator@sdl18:~$ cd be27
+administrator@sdl18:~/be27$ ./fact_client localhost
+Enter value of a:5
+
+Factorial of 5 = 120
+administrator@sdl18:~/be27$ 
+
